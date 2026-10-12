@@ -44,6 +44,15 @@
 
     /* Kizárólag a kezdőoldal hosszú főcímének kompaktabb megjelenítése. */
     main > section.lesson-panel:first-child h1{font-size:clamp(26px,3vw,42px);line-height:1.18;letter-spacing:-.025em;max-width:1060px;margin-bottom:20px}
+
+/* 8. állomás – beágyazott, egykérdéses Tally-óraértékelés */
+.tally-feedback{margin-top:25px}
+.tally-feedback h3{font-size:clamp(22px,2.2vw,28px);margin:9px 0 10px}
+.tally-frame-wrap{max-width:760px;margin:16px auto 12px;border:1px solid #42657b;border-radius:16px;overflow:hidden;background:#fff}
+.tally-frame{display:block;width:100%;height:390px;border:0;background:#fff}
+.tally-fallback{margin-top:10px}
+@media(max-width:700px){.tally-frame{height:460px}.tally-feedback{padding:17px}}
+
 </style>
 <style>
 .life-list{margin:16px 0 18px;padding-left:24px}.life-list li{margin:8px 0;line-height:1.35;color:#e9f8ff}.term{border-left:3px solid #55d7d2;padding:0 0 0 14px;margin:16px 0}.term p{margin:5px 0;color:#bdd4e5}.media-card{min-height:295px}.media-preview{width:100%;max-height:215px;object-fit:contain;border-radius:12px;background:#071725;border:1px solid #315b70;margin:6px 0 10px}.media-card video{object-fit:cover;min-height:155px}.media-card audio{margin:20px 0}.media-card a.btn{display:inline-block;text-decoration:none;margin:9px 0}.card h3{overflow-wrap:anywhere}@media(max-width:700px){.life-list li{font-size:15px}.media-card{min-height:0}}
@@ -354,6 +363,24 @@
 <div class="actions"><button class="btn" id="showAwardResults" type="button">Megjelenítés a dián</button><button class="btn secondary" id="clearAwardResults" type="button">Eredmények elrejtése</button></div>
 <p class="smalltext">Ellenőrizd a 8/8-as pontszámokat és az időket, mielőtt kihirdeted a helyezéseket. A 43–45. percben szóban értékeld a tanulók teljesítményét és zárd le az órát.</p>
 </aside>
+
+<div class="card soft tally-feedback" id="oraErtekeles" aria-label="Anonim óraértékelés">
+  <span class="label">Záró visszajelzés · 1 kérdés</span>
+  <h3>Mennyire tetszett a mai óra?</h3>
+  <p class="muted">Értékeld az órát 1-től 5-ig! Az 1-es jelentése: <strong>egyáltalán nem tetszett</strong>, az 5-ösé: <strong>nagyon tetszett</strong>. Az értékelés nem része a Redmenta-pontozásnak.</p>
+  <div class="tally-frame-wrap">
+    <iframe
+      class="tally-frame"
+      src="https://tally.so/embed/obrg6b?alignLeft=1&amp;hideTitle=1"
+      title="Óraértékelés – mennyire tetszett a mai óra?"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="clipboard-write"
+    ></iframe>
+  </div>
+  <p class="smalltext tally-fallback">Ha a kérdőív nem jelenik meg, <a href="https://tally.so/r/obrg6b" target="_blank" rel="noopener noreferrer">itt nyithatod meg külön lapon ↗</a>.</p>
+  <p class="smalltext">A válaszokat a Tally gyűjti, a weboldal nem tárolja. A névtelenséghez az űrlapon ne legyen név-, e-mail- vagy más azonosító mező.</p>
+</div>
 </section>
 <div class="footer-nav"><button class="btn secondary" id="prevBtn">← Előző rész</button><span class="section-index" id="sectionIndex">1 / 8</span><button class="btn" id="nextBtn">Következő rész →</button></div>
 <p class="footerline">Források: NAT 2020 – 110/2012. (VI. 4.) Korm. rendelet, 5/2020. (I. 31.) módosítás; OH kerettantervi rendszer és helyi tanterv; „101 ötlet innovatív tanároknak” 2.1.1–2.1.3., 2.4.1., 2.4.5., 4.; Canva, PhET, OpenShot, Audacity, Redmenta. Saját készítésű hullámmodell, nem PhET-kód. A szoftvereket bemutató képek között illusztrációk is szerepelnek. <a href="https://www.oktatas.hu/kozneveles/kerettantervek/2020_nat" rel="noopener noreferrer" target="_blank">Kerettantervek ↗</a> · A kezdő Redmenta-feladat véleményalapú; nincs „helyes” sorrend. </p>
