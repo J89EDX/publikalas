@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="11. évfolyamos interaktív tanóra: multimédia, Mentimeter, hanghullám, hullámhossz, hangszín, visszaverődés, törés, elhajlás és interferencia szimulációk." name="description"/>
+<meta content="11. évfolyamos interaktív tanóra: multimédia, Redmenta, hanghullám, hullámhossz, hangszín, visszaverődés, törés, elhajlás és interferencia szimulációk." name="description"/>
 <title>Multimédiás szoftverek a közoktatásban · Interaktív tanóra · 11. évfolyam</title>
 <style>
     :root {--ink:#eff6fb;--muted:#9fb4c9;--dim:#7590a8;--bg:#071523;--panel:#11283b;--panel2:#0c2031;--line:#28465a;--cyan:#5fe4df;--lime:#d8f689;--orange:#ffb583;--danger:#ffa3a3;--shadow:0 18px 48px rgba(0,0,0,.27);color-scheme:dark}
@@ -63,6 +63,18 @@
 .quiz-steps .hard{background:#294737;color:#eafcae;border-color:#84ad52}
 @media(max-width:700px){.recording-options{padding:14px}.quiz-steps span{width:42px;height:42px}}
 </style>
+<style id="redmenta-lesson-styles">
+.course-heading{font-size:clamp(20px,2.05vw,29px)!important;line-height:1.18!important;letter-spacing:-.01em!important;margin:0 0 20px!important;max-width:100%!important;color:#e8fbff}
+.redmenta-qr-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.qr-mount{width:178px;height:178px;flex:0 0 178px;padding:9px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center}
+#redmentaStartQr{max-width:100%;max-height:100%;object-fit:contain}
+.qr-placeholder{height:100%;width:100%;border:2px dashed #8295aa;border-radius:10px;color:#1d4052;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;text-align:center;padding:12px;font-size:13px}
+.qr-placeholder span{font-size:11px;color:#52657a}
+.qr-help{min-width:170px;flex:1}
+.quiz-ten{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;max-width:100%}
+.quiz-ten span{min-width:0;width:auto}
+@media(max-width:500px){.redmenta-qr-row{justify-content:center}.qr-help{flex-basis:100%}.qr-mount{flex-basis:180px}}
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -82,59 +94,63 @@
 <div class="layout">
 <nav aria-label="Tanóra fejezetei" class="sidebar">
 <p class="sidelabel">Az óra állomásai</p>
-<button class="navitem current" data-go="0"><span class="navnumber">01</span><span class="navtxt"><strong>Miért hasznos a multimédia?</strong><small>0–6. perc · Mentimeter rangsor</small></span></button>
-<button class="navitem" data-go="1"><span class="navnumber">02</span><span class="navtxt"><strong>Mit jelent a multimédia?</strong><small>6–12. perc · alapfogalmak</small></span></button>
-<button class="navitem" data-go="2"><span class="navnumber">03</span><span class="navtxt"><strong>Négy fő eszköz</strong><small>12–18. perc · eszközök</small></span></button>
-<button class="navitem" data-go="3"><span class="navnumber">04</span><span class="navtxt"><strong>Kísérletezz a hanggal!</strong><small>18–27. perc · hanghullám</small></span></button>
-<button class="navitem" data-go="4"><span class="navnumber">05</span><span class="navtxt"><strong>Multimédia-műhely</strong><small>27–35. perc · minták</small></span></button>
-<button class="navitem" data-go="5"><span class="navnumber">06</span><span class="navtxt"><strong>Dönts és indokolj!</strong><small>35–40. perc · kihívás</small></span></button>
-<button class="navitem" data-go="6"><span class="navnumber">07</span><span class="navtxt"><strong>Öt kérdés a Mentimeterben</strong><small>40–44. perc · élő kvíz</small></span></button>
-<button class="navitem" data-go="7"><span class="navnumber">08</span><span class="navtxt"><strong>Eredmények és órai ötösök</strong><small>44–45. perc · visszajelzés</small></span></button>
+<button class="navitem current" data-go="0"><span class="navnumber">01</span><span class="navtxt"><strong>Mi az a multimédia?</strong><small>0–5. perc · alapfogalmak</small></span></button>
+<button class="navitem" data-go="1"><span class="navnumber">02</span><span class="navtxt"><strong>Miért hasznos a multimédia?</strong><small>5–9. perc · Redmenta-kérdés</small></span></button>
+<button class="navitem" data-go="2"><span class="navnumber">03</span><span class="navtxt"><strong>Négy fő eszköz</strong><small>9–15. perc · eszközök</small></span></button>
+<button class="navitem" data-go="3"><span class="navnumber">04</span><span class="navtxt"><strong>Kísérletezz a hanggal!</strong><small>15–24. perc · hanghullám</small></span></button>
+<button class="navitem" data-go="4"><span class="navnumber">05</span><span class="navtxt"><strong>Multimédia-műhely</strong><small>24–31. perc · minták</small></span></button>
+<button class="navitem" data-go="5"><span class="navnumber">06</span><span class="navtxt"><strong>Dönts és indokolj!</strong><small>31–36. perc · kihívás</small></span></button>
+<button class="navitem" data-go="6"><span class="navnumber">07</span><span class="navtxt"><strong>10 Redmenta-kérdés</strong><small>36–43. perc · élő ellenőrzés</small></span></button>
+<button class="navitem" data-go="7"><span class="navnumber">08</span><span class="navtxt"><strong>Eredmények és órai ötösök</strong><small>43–45. perc · visszajelzés</small></span></button>
 <div class="sidebar-help"><strong>Tanári vezérlés</strong>A fejezetek között léphetsz, a hanglabor csúszkáit szabadon kipróbálhatod. A tanári időmérő és a jegyzetek nem módosítják a tananyagot.</div>
 </nav>
 <main id="main">
 <!-- 1 -->
-<section aria-label="1. szakasz – ráhangolás" class="lesson-panel active" data-title="Indítsunk kérdéssel!">
-<div class="eyebrow">01 / Induljunk a saját tapasztalataidból · 0–6. perc</div>
-<h1>A közoktatásban is használható <span class="accent">multimédiás szoftverek</span> alkalmazásának lehetőségei informatika és szaktárgyi órákon</h1>
-<p class="lead">Nézel videót tanulás közben? Készítettél már digitális posztert? Használtál már interaktív gyakorlót? Ma kipróbáljuk, <strong>hogyan segítenek ezek a mindennapokban</strong> – és mikor hasznosak igazán.</p>
-<div class="chiprow"><span class="chip">11. évfolyam</span><span class="chip">Digitális kultúra + fizika</span><span class="chip">45 perc</span><span class="chip">Kérdezz · próbálj ki · dönts</span></div>
-<div class="grid2">
-<article class="card"><span class="label">Indító szavazás · rangsorolás</span><h3>Te mire használnád legszívesebben?</h3>
-<p class="muted">Rangsorold az alábbi lehetőségeket: <strong>1. hely = számodra a leghasznosabb</strong>, 5. hely = a legkevésbé hasznos. Nincs jó vagy rossz sorrend!</p>
-<ol class="life-list"><li>Könnyebben megérteni egy nehéz tananyagot</li><li>Saját videót, podcastot vagy posztert készíteni</li><li>Biztonságosan kipróbálni egy jelenséget</li><li>Önállóan gyakorlni és visszajelzést kapni</li><li>Érthetően megosztani az ötleteimet másokkal</li></ol>
-<div class="hintbox">A közös eredményt megbeszéljük: miért került nálad az első helyre az adott lehetőség?</div>
-</article>
-<article class="card"><span class="label">Mentimeter · Ranking</span><h3>Csatlakozz telefonról!</h3><p class="muted">A tanár a képernyőn mutatja a csatlakozási kódot. A Mentimeterben a <strong>Ranking</strong> típusú kérdésnél sorrendbe rendezheted a válaszokat.</p><div class="menti-row"><button class="btn" data-menti-open="">Mentimeter megnyitása ↗</button></div><p class="smalltext" id="mentiCodeDisplay">Csatlakozási kód: még nincs beállítva.</p><p class="smalltext">Az eredményt nem a weboldal gyűjti; az élő szavazás a Mentimeterben történik.</p></article>
-</div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 6 perc</strong><p>0:00–1:00: téma és hétköznapi példa. 1:00–4:45: Mentimeter Ranking öt tétellel; kérj mindenkitől sorrendet. 4:45–6:00: az első két helyezésről kérj indoklást. A rangsor véleményt mutat, nem tudásszintet. Tartalék: kérj két gyors szóbeli rangsort. A Menti rangsorolás „Ranking” típusú élő kérdés, nem Quiz.</p></aside>
-</section>
-<!-- 2 -->
-<section aria-label="2. szakasz – célok és NAT" class="lesson-panel">
-<div class="eyebrow">02 / Megérted a lényeget · 6–12. perc</div>
+<section aria-label="1. szakasz – alapfogalmak" class="lesson-panel active">
+<div class="eyebrow">01 / Fogalmak és célok · 0–5. perc</div>
+<h1 class="course-heading">A közoktatásban is használható multimédiás szoftverek alkalmazásának lehetőségei informatika és szaktárgyi órákon</h1>
 <h2>Mi az a <span class="accent">multimédia</span>?</h2>
 <p class="lead">A multimédia többféle tartalmat – például <strong>szöveget, képet, hangot és mozgóképet</strong> – kapcsol össze, hogy könnyebb legyen valamit elmagyarázni vagy bemutatni.</p>
 <div class="grid2">
 <article class="card"><span class="label">Fogalmak, érthetően</span><div class="term"><strong>Digitális média</strong><p>Digitális formában tárolt vagy közvetített tartalom, például fotó, hangfelvétel vagy videó.</p></div><div class="term"><strong>Multimédia</strong><p>Amikor többféle médium együtt dolgozik: egy kísérletvideóban kép, narráció és felirat is lehet.</p></div><div class="term"><strong>Interaktív tartalom</strong><p>A néző választhat, beállíthat valamit, vagy kérdésre válaszol. Nem csak nézi, hanem <em>tesz is valamit</em>.</p></div></article>
 <article class="card"><span class="label">Miért tanuljuk?</span><h3>Öt helyzet, ahol használhatod</h3><ul class="step-list"><li><strong>Tanulás:</strong> egy fizikai jelenséget animáció segít megérteni.</li><li><strong>Alkotás:</strong> iskolai projekthez posztert vagy videót készítesz.</li><li><strong>Kommunikáció:</strong> képpel és hanggal pontosabban elmondod az ötleted.</li><li><strong>Kísérletezés:</strong> veszély nélkül megváltoztathatsz egy szimulációs beállítást.</li><li><strong>Önellenőrzés:</strong> megtudhatod, mit értesz már, és miben kell még gyakorolnod.</li></ul></article>
 </div>
-<div class="big-q">Kérdés: ha végignézel egy videót, attól biztosan <span class="lime">meg is értetted</span> a tartalmát?</div>
+<div class="hintbox"><strong>Fontos:</strong> egy videó megtekintése önmagában még nem bizonyítja a tananyag megértését. A következő állomáson azt vizsgáljuk, hogyan segíthetik a multimédiás eszközök a mindennapjainkat.</div>
 <div class="hintbox"><strong>A mai célunk:</strong> tudd eldönteni, melyik digitális eszköz mire alkalmas; értsd a hanghullám egyszerű modelljét; és tudj javasolni egy rövid ellenőrző kérdést.</div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 6 perc</strong><p>6–8. perc: multimédia és interaktivitás, hétköznapi példával. 8–10. perc: öt hasznossági terület. 10–12. perc: mi a különbség a passzív megtekintés és az ellenőrizhető megértés között? NAT/kerettanterv: előzmény a 9–10. évfolyamos multimédiás dokumentumkészítés; 11. évfolyamon erre épülő komplex, szaktárgyi alkalmazás, a helyi tanterv szerint. A NAT-hivatkozás a tanári dokumentumban szerepel, nem diáknak szánt memoriter.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 5 perc</strong><p>0–3. perc: a digitális média, a multimédia és az interaktivitás fogalma példákkal. 3–5. perc: mire használhatók a hétköznapokban, és miért nem azonos a videónézés a megértéssel? NAT/kerettanterv: előzmény a 9–10. évfolyamos multimédiás dokumentumkészítés; 11. évfolyamon erre épülő komplex, szaktárgyi alkalmazás, a helyi tanterv szerint. A NAT-hivatkozás a tanári dokumentumban szerepel, nem diáknak szánt memoriter.</p></aside>
+</section>
+<!-- 2 -->
+<section aria-label="2. szakasz – Redmenta-indítás" class="lesson-panel" data-title="Mire használjuk a multimédiát?">
+<div class="eyebrow">02 / Indító kérdés · 5–9. perc</div>
+<h2>Te mire használnád <span class="accent">a multimédiát?</span></h2>
+<p class="lead">Az alapfogalmak után nézzük meg a saját tapasztalataitokat! <strong>Rangsorold</strong>, melyik multimédiás felhasználás a leghasznosabb számodra.</p>
+<div class="chiprow"><span class="chip">11. évfolyam</span><span class="chip">Digitális kultúra + fizika</span><span class="chip">Redmenta · ráhangolás</span><span class="chip">Kérdezz · próbálj ki · dönts</span></div>
+<div class="grid2">
+<article class="card"><span class="label">Indító szavazás · rangsorolás</span><h3>Te mire használnád legszívesebben?</h3>
+<p class="muted">Rangsorold az alábbi lehetőségeket: <strong>1. hely = számodra a leghasznosabb</strong>, 5. hely = a legkevésbé hasznos. Nincs jó vagy rossz sorrend!</p>
+<ol class="life-list"><li>Könnyebben megérteni egy nehéz tananyagot</li><li>Saját videót, podcastot vagy posztert készíteni</li><li>Biztonságosan kipróbálni egy jelenséget</li><li>Önállóan gyakorlni és visszajelzést kapni</li><li>Érthetően megosztani az ötleteimet másokkal</li></ol>
+<div class="hintbox">A közös eredményt megbeszéljük: miért került nálad az első helyre az adott lehetőség?</div>
+</article>
+<article class="card"><span class="label">Redmenta · interaktív kérdés</span><h3>Csatlakozz telefonról!</h3><p class="muted">A második állomás kérdéséhez a tanár által megadott Redmenta-feladaton keresztül csatlakozhatsz. Olvasd be a QR-kódot, vagy nyisd meg a megosztott feladatlinket.</p><div class="redmenta-qr-row">
+  <div class="qr-mount"><img id="redmentaStartQr" alt="Redmenta indítófeladat – csatlakozási QR-kód" hidden />
+    <div id="redmentaQrPlaceholder" class="qr-placeholder"><strong>Redmenta QR-kód</strong><span>A csatlakozáshoz a tanár mutatja meg a kódot.</span></div>
+  </div>
+  <div class="qr-help"><p class="smalltext">Olvasd be a kódot a telefonoddal!</p><button class="btn" data-redmenta-start>Redmenta-feladat megnyitása ↗</button><p class="smalltext">A válaszaidat a Redmenta kezeli, nem ez a weboldal.</p></div>
+</div></article>
+</div>
+<aside class="teacher-note"><strong>Tanári sorvezető · 4 perc</strong><p>5–6. perc: ismertesd a válaszadás módját és a QR-kódot. 6–8. perc: a résztvevők rangsorolnak az előkészített Redmenta-feladatban. 8–9. perc: kérj indoklást az első helyezésekhez. A véleményalapú rangsort nem pontozzuk. Ha az adott Redmenta-feladattípus nem támogat sorrendbe rendezést, öt szempont közül kérd a legfontosabb kiválasztását.</p></aside>
 </section>
 <!-- 3 -->
 <section aria-label="3. szakasz – szoftverek" class="lesson-panel">
-<div class="eyebrow">03 / Digitális alkotóeszközök · 12–18. perc</div>
+<div class="eyebrow">03 / Digitális alkotóeszközök · 9–15. perc</div>
 <h2>Négy program, <span class="accent">négyféle segítség</span></h2>
 <p class="lead">Nem kell minden feladathoz mind a négy program. A kérdés: <strong>mit szeretnél elkészíteni vagy megfigyelni?</strong></p>
 <div class="grid2">
 <article class="card software"><div class="software-head"><span>▤</span><h3>Canva</h3></div><span class="tag">Kép, ábra, poszter</span><p class="muted">Egyoldalas infografika vagy látványos magyarázó kép. Példa: a hangmagasság két hullámának összehasonlítása.</p><p class="smalltext"><strong>Mindennapi használat:</strong> plakát, pályázati bemutató, közösségi poszt.</p><a href="https://www.canva.com/design/DAHXu8YVU3w/6tocpbVW_XUF33FmTFxGvw/edit" rel="noopener noreferrer" target="_blank">Megnyitás ↗</a></article>
 <article class="card software"><div class="software-head"><span>◉</span><h3>PhET</h3></div><span class="tag">Interaktív szimuláció</span><p class="muted">Változtatható modell: kipróbálod, mi történik egy fizikai jelenséggel, ha módosítod a paramétereit.</p><p class="smalltext"><strong>Mindennapi használat:</strong> otthoni kísérletezés, gyakorlás a számonkérés előtt.</p><a href="https://phet.colorado.edu/en/simulations/waves-intro" rel="noopener noreferrer" target="_blank">Hullámok szimuláció ↗</a></article>
 <article class="card software"><div class="software-head"><span>▣</span><h3>OpenShot</h3></div><span class="tag">Videószerkesztés</span><p class="muted">Több rövid felvétel összevágása, képek, címek és feliratok elhelyezése. A végeredmény például MP4-fájl.</p><p class="smalltext"><strong>Mindennapi használat:</strong> rövid ismertető, osztályprojekt, videós beszámoló.</p>
-<img class="software-shot" src="https://files.openshot.org/static/files/user-guide/_images/main-window.jpg" alt="Az OpenShot videószerkesztő hivatalos képernyőképe: médiatár, előnézet és idővonal" loading="lazy"/>
-<p class="smalltext">Forrás: <a href="https://www.openshot.org/static/files/user-guide/main_window.html" target="_blank" rel="noopener noreferrer">OpenShot hivatalos felhasználói útmutató</a>. A kép internetkapcsolattal töltődik be.</p>
 <a href="https://www.openshot.org/" rel="noopener noreferrer" target="_blank">Megnyitás ↗</a></article>
-<article class="card software"><div class="software-head"><span>≋</span><h3>Audacity</h3></div><span class="tag">Hangfelvétel, narráció</span><p class="muted">Felvett beszéd vagy egyéb hang szerkesztése, vágása és javítása; külön hangfájl exportálható.</p><p class="smalltext"><strong>Mindennapi használat:</strong> podcast, interjú, narráció saját videóhoz.</p><img class="software-shot" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201280%20720%22%3E%3Crect%20width%3D%221280%22%20height%3D%22720%22%20fill%3D%22%23eff4fb%22/%3E%3Crect%20x%3D%2252%22%20y%3D%2242%22%20rx%3D%2220%22%20ry%3D%2220%22%20width%3D%221176%22%20height%3D%22636%22%20fill%3D%22%23d9e6f5%22%20opacity%3D%22.55%22/%3E%3Crect%20x%3D%2266%22%20y%3D%2256%22%20rx%3D%2218%22%20ry%3D%2218%22%20width%3D%221148%22%20height%3D%22608%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23c3d5ea%22%20stroke-width%3D%224%22/%3E%3Crect%20x%3D%2266%22%20y%3D%2256%22%20rx%3D%2218%22%20ry%3D%2218%22%20width%3D%221148%22%20height%3D%2258%22%20fill%3D%22%23f5f7fa%22/%3E%3Ctext%20x%3D%2296%22%20y%3D%2294%22%20font-size%3D%2230%22%20font-family%3D%22Arial%22%20fill%3D%22%231d3654%22%20font-weight%3D%22700%22%3EAudacity%20%E2%80%93%20hangszerkeszt%C5%91%20munkafel%C3%BClet%3C/text%3E%3Crect%20x%3D%2290%22%20y%3D%22130%22%20width%3D%221100%22%20height%3D%2272%22%20rx%3D%2214%22%20fill%3D%22%23eef3f8%22%20stroke%3D%22%23d2dde9%22/%3E%3Ccircle%20cx%3D%22128%22%20cy%3D%22166%22%20r%3D%2220%22%20fill%3D%22%230aa1ff%22/%3E%3Cpolygon%20points%3D%22120%2C154%20120%2C178%20140%2C166%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%22184%22%20cy%3D%22166%22%20r%3D%2220%22%20fill%3D%22%2316c784%22/%3E%3Crect%20x%3D%22174%22%20y%3D%22156%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%22240%22%20cy%3D%22166%22%20r%3D%2220%22%20fill%3D%22%23ff4d4d%22/%3E%3Crect%20x%3D%22233%22%20y%3D%22156%22%20width%3D%2214%22%20height%3D%2220%22%20fill%3D%22%23fff%22/%3E%3Crect%20x%3D%22290%22%20y%3D%22148%22%20width%3D%22110%22%20height%3D%2236%22%20rx%3D%2210%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23c3d5ea%22/%3E%3Ctext%20x%3D%22313%22%20y%3D%22172%22%20font-size%3D%2220%22%20font-family%3D%22Arial%22%20fill%3D%22%2348607a%22%3EEszk%C3%B6z%C3%B6k%3C/text%3E%3Crect%20x%3D%22420%22%20y%3D%22148%22%20width%3D%22200%22%20height%3D%2236%22%20rx%3D%2210%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23c3d5ea%22/%3E%3Ctext%20x%3D%22446%22%20y%3D%22172%22%20font-size%3D%2220%22%20font-family%3D%22Arial%22%20fill%3D%22%2348607a%22%3EProjekt%20frekvencia%3A%2044100%20Hz%3C/text%3E%3Crect%20x%3D%2290%22%20y%3D%22224%22%20width%3D%221100%22%20height%3D%22170%22%20rx%3D%2218%22%20fill%3D%22%23f8fbfe%22%20stroke%3D%22%23d2dde9%22/%3E%3Ctext%20x%3D%22118%22%20y%3D%22254%22%20font-size%3D%2222%22%20font-family%3D%22Arial%22%20fill%3D%22%235b7088%22%20font-weight%3D%22700%22%3ENarr%C3%A1ci%C3%B3%20%E2%80%93%20bal%20/%20jobb%20csatorna%3C/text%3E%3Cline%20x1%3D%22118%22%20y1%3D%22307%22%20x2%3D%221160%22%20y2%3D%22307%22%20stroke%3D%22%23d4e1ee%22%20stroke-width%3D%222%22/%3E%3Cpolyline%20points%3D%22118%2C307%20138%2C265%20158%2C339%20178%2C292%20198%2C285%20218%2C330%20238%2C250%20258%2C319%20278%2C288%20298%2C296%20318%2C270%20338%2C344%20358%2C301%20378%2C290%20398%2C315%20418%2C248%20438%2C318%20458%2C303%20478%2C282%20498%2C322%20518%2C270%20538%2C346%20558%2C307%20578%2C293%20598%2C284%20618%2C327%20638%2C253%20658%2C312%20678%2C300%20698%2C285%20718%2C334%20738%2C268%20758%2C347%20778%2C306%20798%2C295%20818%2C286%20838%2C318%20858%2C255%20878%2C324%20898%2C296%20918%2C286%20938%2C335%20958%2C270%20978%2C346%20998%2C304%201018%2C296%201038%2C281%201058%2C321%201078%2C258%201098%2C319%201118%2C303%201138%2C291%201158%2C311%22%20fill%3D%22none%22%20stroke%3D%22%231374d6%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Cpolyline%20points%3D%22118%2C331%20138%2C349%20158%2C287%20178%2C322%20198%2C330%20218%2C288%20238%2C356%20258%2C292%20278%2C326%20298%2C318%20318%2C344%20338%2C286%20358%2C324%20378%2C332%20398%2C307%20418%2C358%20438%2C298%20458%2C312%20478%2C335%20498%2C292%20518%2C342%20538%2C285%20558%2C323%20578%2C337%20598%2C329%20618%2C288%20638%2C351%20658%2C301%20678%2C314%20698%2C334%20718%2C291%20738%2C347%20758%2C284%20778%2C325%20798%2C339%20818%2C327%20838%2C298%20858%2C354%20878%2C291%20898%2C320%20918%2C334%20938%2C289%20958%2C344%20978%2C285%20998%2C323%201018%2C336%201038%2C332%201058%2C292%201078%2C349%201098%2C296%201118%2C311%201138%2C330%201158%2C300%22%20fill%3D%22none%22%20stroke%3D%22%230db3e8%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2290%22%20y%3D%22416%22%20width%3D%221100%22%20height%3D%22170%22%20rx%3D%2218%22%20fill%3D%22%23f8fbfe%22%20stroke%3D%22%23d2dde9%22/%3E%3Ctext%20x%3D%22118%22%20y%3D%22446%22%20font-size%3D%2222%22%20font-family%3D%22Arial%22%20fill%3D%22%235b7088%22%20font-weight%3D%22700%22%3EH%C3%A1tt%C3%A9rzene%20vagy%20hanghat%C3%A1s%3C/text%3E%3Cline%20x1%3D%22118%22%20y1%3D%22502%22%20x2%3D%221160%22%20y2%3D%22502%22%20stroke%3D%22%23d4e1ee%22%20stroke-width%3D%222%22/%3E%3Cpolyline%20points%3D%22118%2C502%20138%2C490%20158%2C482%20178%2C470%20198%2C462%20218%2C470%20238%2C482%20258%2C490%20278%2C502%20298%2C514%20318%2C522%20338%2C534%20358%2C542%20378%2C534%20398%2C522%20418%2C510%20438%2C498%20458%2C486%20478%2C474%20498%2C466%20518%2C474%20538%2C486%20558%2C498%20578%2C510%20598%2C522%20618%2C530%20638%2C540%20658%2C532%20678%2C522%20698%2C512%20718%2C500%20738%2C488%20758%2C476%20778%2C468%20798%2C476%20818%2C488%20838%2C500%20858%2C512%20878%2C524%20898%2C532%20918%2C542%20938%2C534%20958%2C522%20978%2C510%20998%2C498%201018%2C486%201038%2C474%201058%2C466%201078%2C474%201098%2C486%201118%2C498%201138%2C510%201158%2C522%22%20fill%3D%22none%22%20stroke%3D%22%23f97316%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2290%22%20y%3D%22606%22%20width%3D%221100%22%20height%3D%2228%22%20rx%3D%2212%22%20fill%3D%22%23edf2f8%22%20stroke%3D%22%23d2dde9%22/%3E%3Crect%20x%3D%22260%22%20y%3D%22610%22%20width%3D%22280%22%20height%3D%2220%22%20rx%3D%2210%22%20fill%3D%22%2349b6ff%22/%3E%3Ctext%20x%3D%22564%22%20y%3D%22625%22%20font-size%3D%2220%22%20font-family%3D%22Arial%22%20fill%3D%22%2351677f%22%3Eid%C5%91vonal%20%C2%B7%20v%C3%A1g%C3%A1s%20%C2%B7%20export%3C/text%3E%3C/svg%3E" alt="Audacity hangszerkesztő munkafelület: hullámforma, eszköztár és idővonal" loading="lazy"/><p class="smalltext">Szemléltető képernyőkép az Audacity munkafelületéről.</p><a href="https://www.audacityteam.org/" rel="noopener noreferrer" target="_blank">Megnyitás ↗</a></article>
+<article class="card software"><div class="software-head"><span>≋</span><h3>Audacity</h3></div><span class="tag">Hangfelvétel, narráció</span><p class="muted">Felvett beszéd vagy egyéb hang szerkesztése, vágása és javítása; külön hangfájl exportálható.</p><p class="smalltext"><strong>Mindennapi használat:</strong> podcast, interjú, narráció saját videóhoz.</p><a href="https://www.audacityteam.org/" rel="noopener noreferrer" target="_blank">Megnyitás ↗</a></article>
 </div>
 
 <div class="card soft" style="margin-top:16px"><span class="label">Kitekintés · két további program</span>
@@ -151,11 +167,11 @@
 </div>
 <div class="big-q">Ha egy hanghullámot szeretnél <span class="lime">változtatni és megfigyelni</span>, melyik eszközt választanád?</div>
 <div class="actions"><button class="btn secondary" data-tool-answer="Canva">Canva</button><button class="btn secondary" data-tool-answer="PhET">PhET</button><button class="btn secondary" data-tool-answer="OpenShot">OpenShot</button><button class="btn secondary" data-tool-answer="Audacity">Audacity</button></div><div aria-live="polite" class="feedback" id="toolFeedback" role="status"></div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 6 perc</strong><p>12–16: a négy szerep + hétköznapi felhasználás. 16–18: döntési kérdés; indoklás a PhET mellett. Különböztesd meg: a saját webes hangmodell szemléltetés; a PhET külső szimulációs eszköz. Az OBS és a Képmetsző saját képernyőfelvételek készítésére alkalmas; csak említsd meg őket röviden, ne tarts élő rögzítési bemutatót. Nem kell egyik külső programot sem élőben beléptetni.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 6 perc</strong><p>9–13: a négy szerep + hétköznapi felhasználás. 13–15: döntési kérdés; indoklás a PhET mellett. Különböztesd meg: a saját webes hangmodell szemléltetés; a PhET külső szimulációs eszköz. Az OBS és a Képmetsző saját képernyőfelvételek készítésére alkalmas; csak említsd meg őket röviden, ne tarts élő rögzítési bemutatót. Nem kell egyik külső programot sem élőben beléptetni.</p></aside>
 </section>
 <!-- 4 -->
 <section class="lesson-panel" aria-label="4. szakasz – interaktív hang- és hullámlabor">
-<div class="eyebrow">04 / Hang- és hullámlabor · 18–27. perc (a további modulok fakultatívak)</div>
+<div class="eyebrow">04 / Hang- és hullámlabor · 15–24. perc (a további modulok fakultatívak)</div>
 <h2>Élő <span class="accent">hang- és hullámlabor</span></h2>
 <p class="lead">Kísérletezz a hang tulajdonságaival! Minden lapon először jósolj, majd állítsd át a csúszkákat, és ellenőrizd az elképzelésed. A grafikus modellek az alapelveket szemléltetik, nem laboratóriumi mérések.</p>
 <div class="lab-tabs" role="tablist" aria-label="Hanglabor jelenségei">
@@ -180,7 +196,7 @@
 </div>
 <article class="lab-explain"><h3>Hullámhossz (λ) – milyen hosszú egy teljes hullám?</h3><p>A <strong>hullámhossz</strong> a térben ismétlődő rezgés két azonos fázisú pontja (például két sűrűsödési maximum) közötti távolság. Ugyanabban a közegben a hangsebesség állandónak tekinthető, ezért <strong>λ = c / f</strong>. Itt a levegőre <strong>c ≈ 343 m/s</strong> értékkel számolunk (kb. 20 °C).</p><svg viewBox="0 0 850 152" class="lab-inline-svg" role="img" aria-label="A négy méteres távolságot bemutató hullámhossz szemléltetés"><rect x="0" y="0" width="850" height="152" rx="10" fill="#092131"/><path d="" id="spaceWavePath" fill="none" stroke="#d8f689" stroke-width="3"/><path id="spaceBracket" fill="none" stroke="#5fe4df" stroke-width="2"/><text x="22" y="135" fill="#a6bdcb" font-size="15">A teljes ábra 4 métert mutat (térbeli pillanatkép).</text></svg><div class="lab-metrics"><span>Hangsebesség <strong>343 m/s</strong></span><span>Hullámhossz <strong id="lambdaStat">1,56 m</strong></span><span>Periódusidő <strong id="periodStat">4,55 ms</strong></span></div><p class="lab-foot">A fenti első hullámrajz időbeli változást mutat; az alsó térbeli metszet. A kettőt nem szabad azonos tengelyként értelmezni.</p></article><div class="big-q">Melyik beállítást változtatnád, ha <span class="lime">magasabb hangot</span> szeretnél, de nem hangosabbat?</div>
 <div class="actions"><button class="btn secondary" data-wave-answer="freq">Frekvencia</button><button class="btn secondary" data-wave-answer="amp">Amplitúdó</button><button class="btn secondary" data-wave-answer="both">Mindkettő</button></div><div aria-live="polite" class="feedback" id="waveFeedback" role="status"></div>
-<aside class="teacher-note"><strong>Tanári sorvezető · a 45 perces órához</strong><p>A 18–27. percben javasolt: 3 perc frekvencia, amplitúdó és hullámhossz; 2 perc hangszín; 2 perc visszhang vagy interferencia; 2 perc megfigyelés és indoklás. A többi lap fakultatív kiegészítés, nem kell minden modult végigvenni. A modell nem mérés. Hang csak felhasználói kattintás után indul; képernyőmegosztáskor engedélyezd a rendszerhangot.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · a 45 perces órához</strong><p>A 15–24. percben javasolt: 3 perc frekvencia, amplitúdó és hullámhossz; 2 perc hangszín; 2 perc visszhang vagy interferencia; 2 perc megfigyelés és indoklás. A többi lap fakultatív kiegészítés, nem kell minden modult végigvenni. A modell nem mérés. Hang csak felhasználói kattintás után indul; képernyőmegosztáskor engedélyezd a rendszerhangot.</p></aside>
 </div>
 <div class="lab-pane" data-lab-pane="timbre" hidden>
 <div class="lab-intro"><div><span class="label">A hangszer felismerésének titka</span><h3>Miért más a fuvola és a gitár hangja ugyanazon a hangmagasságon?</h3><p>A <strong>hangszín</strong> főként a felharmonikusok összetételétől és erősségétől, illetve a hang időbeli lefutásától függ. Itt azonos alapfrekvencia mellett különböző periodikus hullámformákat hallgathatsz.</p></div><div class="lab-question">Tippelj: azonos, 220 Hz-es alaphang esetén felismerhető különbség a hullámformák között?</div></div>
@@ -212,7 +228,7 @@
 </section>
 <!-- 5 -->
 <section aria-label="5. szakasz – multimédia műhely" class="lesson-panel">
-<div class="eyebrow">05 / Most megmutatjuk, hogyan készül · 27–35. perc</div>
+<div class="eyebrow">05 / Most megmutatjuk, hogyan készül · 24–31. perc</div>
 <h2>Multimédia-műhely: <span class="accent">egy témából többféle tartalom</span></h2>
 <p class="lead">Egy tudományos projekthez <strong>figyelemfelkeltő címlap</strong>, <strong>változtatható kísérlet</strong>, <strong>magyarázó videó</strong> és <strong>hang</strong> is készülhet. Mindegyik másképp segíti a megértést.</p>
 <div class="grid2">
@@ -228,11 +244,11 @@
 </div>
 <div class="card soft" style="margin-top:16px"><span class="label">Hogyan lesz kész az egyetlen közös tananyag?</span><h3>Összeállítás négy lépésben</h3><div class="timeline"><div class="clip"><span>①</span>Ábra<small>Canva</small></div><div class="clip"><span>②</span>Próba<small>PhET</small></div><div class="clip"><span>③</span>Magyarázó hang<small>Audacity</small></div><div class="clip"><span>④</span>Vágás, export<small>OpenShot</small></div></div><p class="muted">A képet és a hangot beillesztheted a szerkesztett videóba. A kész MP4 megjelenhet az iskolai honlapon. A szimulációt külön linkkel is megnyithatod. <strong>Nem kötelező mind a négy szoftvert minden projektnél használni.</strong> A saját képernyőfelvételed elkészíthető OBS Studio vagy Windows 11 Képmetsző segítségével is.</p></div>
 <div class="card soft" style="margin-top:16px"><h3>Mi hiányozhat még a megértés ellenőrzéséhez?</h3><div class="actions"><button class="btn secondary" data-check-step="effect">Több effekt</button><button class="btn secondary" data-check-step="question">Rövid kérdés + magyarázó visszajelzés</button><button class="btn secondary" data-check-step="longer">Hosszabb videó</button></div><div aria-live="polite" class="feedback" id="stepFeedback" role="status"></div></div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 8 perc</strong><p>27–28: rövid bevezetés. 28–30: infografika és PhET képernyőkép szerepe. 30–32: OpenShot képernyőkép – beszéld meg, mi az idővonal, az előnézet és az export. 32–33: Audacity képernyőkép – beszéld meg, hogyan készülhet narráció vagy podcast. 33–35: a négyfázisú összeállítás és kérdés: hogyan ellenőrzöd a megértést? Az oldalon most szemléltető mintaképek vannak; később saját exportokra cserélhetők.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 7 perc</strong><p>24–25: rövid bevezetés. 25–27: infografika és PhET képernyőkép szerepe. 27–29: OpenShot képernyőkép – beszéld meg, mi az idővonal, az előnézet és az export. 29–30: Audacity képernyőkép – beszéld meg, hogyan készülhet narráció vagy podcast. 30–31: a négyfázisú összeállítás és kérdés: hogyan ellenőrzöd a megértést? Az oldalon most szemléltető mintaképek vannak; később saját exportokra cserélhetők.</p></aside>
 </section>
 <!-- 6 -->
 <section aria-label="6. szakasz – differenciálás" class="lesson-panel">
-<div class="eyebrow">06 / Kihívás · 35–40. perc</div>
+<div class="eyebrow">06 / Kihívás · 31–36. perc</div>
 <h2>Egy probléma. <span class="accent">Három megoldási szint.</span></h2>
 <p class="lead">Képzeld el, hogy egy 11.-es osztály digitális tudományos napjára készítesz tananyagot. Válaszd azt a kihívást, amelyikkel szívesen dolgoznál! A döntésedet indokold is.</p>
 <div class="card">
@@ -243,62 +259,56 @@
 <div aria-live="polite" class="feedback" id="scenarioFeedback" role="status"></div>
 <div class="hintbox" style="margin-top:15px"><strong>Fejlesztő értékelés:</strong> az első hibás válasz után segítséget kapsz, és újragondolhatod a döntést. A szintek szabadon választhatók; nincs képesség szerinti beskatulyázás.</div>
 </div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 5 perc</strong><p>35–36: feladat és szabad nehézségválasztás. 36–38: alapszint és önálló szint közös megbeszélése, 38–40: haladó döntés – hogyan kapcsolódik az előrejelzés, a szimuláció és a visszacsatolás egyetlen feladattá. Nem valódi csoportmunka, hanem projekttervezési részfeladat. A diáknak konkrét döntést és indokot kell megfogalmaznia.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 5 perc</strong><p>31–32: feladat és szabad nehézségválasztás. 32–34: alapszint és önálló szint közös megbeszélése, 34–36: haladó döntés – hogyan kapcsolódik az előrejelzés, a szimuláció és a visszacsatolás egyetlen feladattá. Nem valódi csoportmunka, hanem projekttervezési részfeladat. A diáknak konkrét döntést és indokot kell megfogalmaznia.</p></aside>
 </section>
 <!-- 7 -->
-<section aria-label="7. szakasz – Mentimeter-kvíz" class="lesson-panel">
-<div class="eyebrow">07 / Élő tudásellenőrzés · 40–44. perc</div>
-<h2>Öt kérdés. <span class="accent">Tudod alkalmazni, amit tanultál?</span></h2>
-<p class="lead">Válaszolj a Mentimeter <strong>élő, pontozott kvízében</strong>! Az első négy feladat rövidebb, az ötödikben egy új helyzetből kell következtetned.</p>
+<section aria-label="7. szakasz – Redmenta-ellenőrzés" class="lesson-panel">
+<div class="eyebrow">07 / Élő ellenőrzés · 36–43. perc</div>
+<h2>Tíz kérdés. <span class="accent">Mit értettél meg?</span></h2>
+<p class="lead">A Redmentában most <strong>10 tudásellenőrző kérdés</strong> következik. Nem csak a programokra kérdezünk rá: a digitális média, a multimédia és az interaktivitás fogalmát is alkalmaznod kell.</p>
 <div class="grid2">
-  <article class="card"><span class="label">Mentimeter · 5 kérdés</span><h3>Miről lesz szó?</h3>
-    <ol class="step-list quiz-topics">
-      <li>Multimédiás eszközök és céljaik</li>
-      <li>Frekvencia és hangmagasság</li>
-      <li>Hangszín és felhangok</li>
-      <li>Frekvencia és hullámhossz kapcsolata</li>
-      <li><strong>Következtetés:</strong> mi történik, ha a hang frekvenciája változik, de a terjedési sebessége nem?</li>
-    </ol>
-    <button class="btn" data-menti-open>Belépés az élő kvízbe ↗</button>
-    <p class="smalltext" id="mentiCodeDisplay2" style="margin-top:10px">A csatlakozási kódot a tanár adja meg.</p>
-  </article>
-  <article class="card"><span class="label">4 perc · 5 feladat</span><h3>Így tudsz jó eredményt elérni</h3>
-    <div class="quiz-steps" aria-label="Öt kérdésből álló kvíz"><span>1</span><span>2</span><span>3</span><span>4</span><span class="hard">5★</span></div>
-    <p class="muted">Olvasd el figyelmesen a kérdést, majd válassz! Minden jó válasz ugyanannyi pontot ér; a lényeg <strong>a pontosság, nem a gyorsaság</strong>.</p>
-    <div class="hintbox">Az 5. kérdés nehezebb: a hanglaborban látottakból kell levezetned a választ.</div>
-    <p class="smalltext">A kérdéseket és a megoldásokat az élő Mentimeter jeleníti meg. A weboldal nem tartalmaz előre megtekinthető megoldókulcsot és nem menti a válaszaidat.</p>
-  </article>
+<article class="card"><span class="label">Redmenta · 10 kérdés</span><h3>Milyen témákból készülj?</h3>
+<ol class="step-list quiz-topics">
+<li>Digitális média – fogalom</li><li>Multimédia – fogalom</li><li>Interaktivitás – példák</li><li>Canva – alkalmazási lehetőség</li><li>PhET – szimulációs cél</li><li>OpenShot – videószerkesztés</li><li>Audacity – hangfeldolgozás</li><li>Frekvencia és hangmagasság</li><li>Amplitúdó és hangosság</li><li><strong>Haladó:</strong> eszközválasztás és a megértés ellenőrzése</li>
+</ol>
+<button class="btn" data-redmenta-quiz>Az ellenőrző feladat megnyitása ↗</button>
+<p class="smalltext">A belépési hivatkozást az oktató adja meg.</p>
+</article>
+<article class="card"><span class="label">7 perc · 10 feladat</span><h3>Hogyan szerezz jó eredményt?</h3>
+<div aria-label="Tíz ellenőrző kérdés" class="quiz-steps quiz-ten"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span class="hard">10★</span></div>
+<p class="muted">Minden kérdést olvass végig! A fogalmi válaszokon túl az utolsó feladatban a tanult szoftverek közül kell kiválasztanod a megfelelőket, és következtetned kell a pedagógiai célból.</p>
+<div class="hintbox">A pontosság számít. A 10. kérdés összetettebb, de az órán tanultakból megoldható.</div>
+<p class="smalltext">A weboldalon nincs megoldókulcs, és nem tárolódik egyéni tanulói válasz. A feladat és annak javítása a Redmentában történik.</p>
+</article>
 </div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 4 perc</strong><p>Az öt kérdést a Mentimeter <em>Quiz Competition → Select Answer</em> típussal hozd létre. Állíts be <em>Fixed points</em> pontozást és rövid, de a következtetéshez elegendő válaszidőt. 40–44. perc: kérdésenként kb. 20–25 mp válaszadás és 15–20 mp visszajelzés. Az ötödik feladat a λ = v/f kapcsolat alkalmazását igényli. A helyes válaszok nincsenek ebben a nyilvános fájlban; a tanári kérdéssort külön őrizd meg.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 7 perc</strong><p>36–37: Redmenta-kód vagy csatlakozási hivatkozás megosztása. 37–42: 10 előre elkészített, jellemzően feleletválasztós feladat megoldása. 42–43: rövid közös reflexió. Állíts be a csoportnak megfelelő kitöltési időt. A tanári megoldókulcsot ne publikáld a GitHubon. A záró feladat a multimédia pedagógiai alkalmazásából következtet.</p></aside>
 </section>
 <!-- 8 -->
 <section aria-label="8. szakasz – eredmények és értékelés" class="lesson-panel">
-<div class="eyebrow">08 / Eredményhirdetés · 44–45. perc</div>
+<div class="eyebrow">08 / Eredményhirdetés · 43–45. perc</div>
 <h2>Hogyan sikerült? <span class="accent">Nézzük az eredményeket!</span></h2>
-<p class="lead">A kvíz végén közösen megnézzük, milyen tudást sikerült alkalmaznunk. A hibás válaszokból is tanulhatunk.</p>
+<p class="lead">A Redmenta-feladat végeztével az oktató bemutatja az összesített eredményeket és visszajelzést ad a legfontosabb tanulságokról.</p>
 <div class="grid2">
- <article class="card"><span class="label">Mentimeter · eredménytábla</span><h3>Most következik az eredményhirdetés</h3>
-  <p class="muted">A tanár az élő Mentimeter-prezentációban megnyitja az eredménytáblát. A honlap nem kapcsolódik a Mentimeter pontszámaihoz, és nem mutat valódi eredményeket.</p>
-  <div class="hintbox">Az eredményeket a tanár <strong>saját előadói nézetében</strong> nyitja meg; a résztvevői belépőlink nem erre szolgál.</div>
- </article>
- <article class="card"><span class="label">Órai munka · értékelés</span>
-  <div class="outcome-emphasis">5 helyes válasz / 5 → órai munka ötös</div>
-  <p class="muted" style="margin-top:18px">Ha az öt kérdésben azonos, rögzített pontozást állítunk be, az <strong>5000 pont</strong> öt helyes válasznak felel meg (kérdésenként 1000 pont). A tanár a helyes válaszok számát ellenőrzi, nem pusztán a rangsor helyezését.</p>
-  <p class="smalltext">A ranglista önmagában nem feltétlenül mutat minden résztvevőt. Órai jegy rögzítéséhez a tanulók azonosítását és az eredmények ellenőrzését külön, adatvédelmi szempontokat betartva kell megoldani.</p>
- </article>
+<article class="card"><span class="label">Redmenta · tanári eredmények</span><h3>Most következik az eredményhirdetés</h3>
+<p class="muted">A tanár megnyitja a Redmenta tanári értékelési nézetét, és megmutatja az összesített eredményeket. A honlap nem kapcsolódik automatikusan a Redmentához, ezért nem jelenít meg valós pontszámokat.</p>
+<div class="hintbox">Az egyéni eredményeket csak a szükséges körben ismertessük; a teljesítmények nyilvános megjelenítésénél ügyeljünk az adatvédelemre.</div>
+</article>
+<article class="card"><span class="label">Órai munka · értékelés</span><div class="outcome-emphasis">10 helyes válasz / 10 → órai munka ötös</div>
+<p class="muted" style="margin-top:18px">Az órai ötös az előre közölt feltétel szerint a <strong>teljesen hibátlan</strong> ellenőrző feladatért járhat. Az érdemjegyet a tanár a Redmenta javított eredményei alapján állapítja meg.</p>
+<p class="smalltext">A 10 kérdéses feladat pedagógiai értékelése különbözik a nyitó, véleményalapú rangsorolástól.</p></article>
 </div>
 <div class="quote">„A multimédia akkor igazán hasznos, ha nemcsak látványos, hanem megértést és önálló gondolkodást is segít.”</div>
-<aside class="teacher-note"><strong>Tanári sorvezető · 1 perc</strong><p>44–45. perc: a Quiz Competition záró Leaderboard diájának megjelenítése. A pontozás legyen mind az öt kérdésnél <em>Fixed points</em>. A Top 10 rangsor nem minden résztvevő részletes eredménye; ha minden ötösre jogosultat szeretnél azonosítani, a szükséges egyéni eredményt külön ellenőrizd. Nem publikálunk engedély nélkül személyhez köthető tanulói teljesítményt.</p></aside>
+<aside class="teacher-note"><strong>Tanári sorvezető · 2 perc</strong><p>43–44: összesített eredmények, gyakori tévedések rövid értelmezése. 44–45: órai munka értékelése az ellenőrzött eredmények alapján; záró gondolat. Ne állíts ki jegyet pusztán nyilvános ranglista alapján.</p></aside>
 </section>
 
-<div class="footer-nav"><button class="btn secondary" id="prevBtn">← Előző rész</button><span class="section-index" id="sectionIndex">1 / 7</span><button class="btn" id="nextBtn">Következő rész →</button></div>
-<p class="footerline">Források: NAT 2020 – 110/2012. (VI. 4.) Korm. rendelet, 5/2020. (I. 31.) módosítás; OH kerettantervi rendszer és helyi tanterv; „101 ötlet innovatív tanároknak” 2.1.1–2.1.3., 2.4.1., 2.4.5., 4.; Canva, PhET, OpenShot, Audacity, Mentimeter. Saját, szemléltető hullámmodell; nem PhET-kód és nem valamely program képernyőképe. <a href="https://www.oktatas.hu/kozneveles/kerettantervek/2020_nat" rel="noopener noreferrer" target="_blank">Kerettantervek ↗</a> · A kezdő Mentimeter-feladat Ranking típusú, nincs „helyes” sorrend. </p>
+<div class="footer-nav"><button class="btn secondary" id="prevBtn">← Előző rész</button><span class="section-index" id="sectionIndex">1 / 8</span><button class="btn" id="nextBtn">Következő rész →</button></div>
+<p class="footerline">Források: NAT 2020 – 110/2012. (VI. 4.) Korm. rendelet, 5/2020. (I. 31.) módosítás; OH kerettantervi rendszer és helyi tanterv; „101 ötlet innovatív tanároknak” 2.1.1–2.1.3., 2.4.1., 2.4.5., 4.; Canva, PhET, OpenShot, Audacity, Redmenta. Saját, szemléltető hullámmodell; nem PhET-kód és nem valamely program képernyőképe. <a href="https://www.oktatas.hu/kozneveles/kerettantervek/2020_nat" rel="noopener noreferrer" target="_blank">Kerettantervek ↗</a> · A kezdő Redmenta-feladat véleményalapú; nincs „helyes” sorrend. </p>
 </main>
 </div>
 <script>
   'use strict';
   // A GitHub Pages-en is működő, adatbázis nélküli tanórai oldal.
-  // A Mentimeter-hivatkozást a forráskód állítja be; tanulók nem írhatják át a központi oldalon.
+  // A Redmenta-hivatkozást a forráskód állítja be; a tanulók nem írhatják át a közzétett oldalon.
   const panels=[...document.querySelectorAll('.lesson-panel')];
   const navigation=[...document.querySelectorAll('[data-go]')];
   let current=0, showNotes=false, running=false, elapsed=0, timerInterval=null;
@@ -310,13 +320,23 @@
   document.getElementById('viewBtn').addEventListener('click',()=>{document.body.classList.toggle('projector');document.getElementById('viewBtn').textContent=document.body.classList.contains('projector')?'▤ Normál nézet':'⛶ Vetítés';});
   function formatTime(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
   document.getElementById('timeBtn').addEventListener('click',()=>{running=!running;document.getElementById('timeBtn').textContent=running?'Ⅱ Szünet':'▶ Idő';if(timerInterval)clearInterval(timerInterval);if(running)timerInterval=setInterval(()=>{elapsed++;document.getElementById('clock').textContent=formatTime(elapsed);if(elapsed===2700)document.getElementById('clock').style.color='#ffb583'},1000)});
-// TANÁRI BEÁLLÍTÁSOK: ezeket kizárólag a GitHub-tároló index.html forrásában módosítsd.
-  // A tanulói oldalon nincs Mentimeter-hivatkozást szerkesztő űrlap.
-  const MENTI_PARTICIPANT_URL = 'https://www.menti.com/'; // ide illeszd be a Mentimeter RÉSZTVEVŐI hivatkozását
-  const MENTI_JOIN_CODE = ''; // ide írd a Mentimeter csatlakozási kódját; nem jelszó
-  function updateMenti(){['mentiCodeDisplay','mentiCodeDisplay2'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=MENTI_JOIN_CODE?'Csatlakozási kód: '+MENTI_JOIN_CODE:'A csatlakozási kódot a tanár adja meg.'});}
-  function openMenti(){window.open(MENTI_PARTICIPANT_URL||'https://www.menti.com/','_blank','noopener,noreferrer')}
-  document.querySelectorAll('[data-menti-open]').forEach(b=>b.addEventListener('click',openMenti));updateMenti();
+// TANÁRI BEÁLLÍTÁSOK – CSAK A GITHUB index.html FORRÁSFÁJLBAN MÓDOSÍTHATÓK.
+  // A QR-kód tényleges képe ide illeszthető base64 data URI-ként; jelenleg a tanári QR-kép fájlja még szükséges.
+  const REDMENTA_START_URL = ''; // a 2. állomás résztvevői kérdésének megosztási linkje
+  const REDMENTA_QUIZ_URL = '';  // a 10 kérdéses záró feladat résztvevői linkje
+  const REDMENTA_START_QR_DATA_URL = ''; // ide kerül a kapott QR-kép data:image/png;base64,... formában
+  function openRedmenta(url){
+    if(url && /^https:\/\//i.test(url)) window.open(url, '_blank', 'noopener,noreferrer');
+    else window.open('https://redmenta.com/', '_blank', 'noopener,noreferrer');
+  }
+  document.querySelectorAll('[data-redmenta-start]').forEach(x=>x.addEventListener('click',()=>openRedmenta(REDMENTA_START_URL)));
+  document.querySelectorAll('[data-redmenta-quiz]').forEach(x=>x.addEventListener('click',()=>openRedmenta(REDMENTA_QUIZ_URL)));
+  if(REDMENTA_START_QR_DATA_URL){
+    const img=document.getElementById('redmentaStartQr');
+    const fallback=document.getElementById('redmentaQrPlaceholder');
+    if(img){img.src=REDMENTA_START_QR_DATA_URL;img.hidden=false;}
+    if(fallback) fallback.hidden=true;
+  }
   // Application function check
   document.querySelectorAll('[data-tool-answer]').forEach(b=>b.addEventListener('click',()=>{const correct=b.dataset.toolAnswer==='PhET';const f=document.getElementById('toolFeedback');f.className='feedback show'+(correct?'':' bad');f.textContent=correct?'Helyes: a PhET típusú paraméterezhető szimuláció felfedeztető megfigyelésre alkalmas. A következő állomáson saját hanghullám-modellt is kipróbálunk.':'Ezt az alkalmazást más célra érdemes választani. A változtatható fizikai modellhez szimuláció kell: PhET.'}));
   // Independent sine visualization and Web Audio. SVG x-axis is schematic.
@@ -330,7 +350,7 @@
   document.querySelectorAll('[data-check-step]').forEach(b=>b.addEventListener('click',()=>{const yes=b.dataset.checkStep==='question',f=document.getElementById('stepFeedback');f.className='feedback show'+(yes?'':' bad');f.textContent=yes?'Helyes. A célzott kérdés vagy kis gyakorlati feladat bizonyítékot adhat a megértésről; szükség esetén magyarázó visszajelzést adunk.':'Az effektek vagy a hossz önmagában nem mutatja a megértést. Inkább rövid ellenőrző feladatot tervezzünk.'}));
   const scenarios=[
     {title:'1 · Alap: hangmagasság',desc:'A tanulók kipróbálnák, hogyan változik a hangmagasság a frekvenciával. Melyik eszköz felel meg leginkább?',options:['Canva – szép poszter készítése','PhET vagy más paraméterezhető szimuláció','OpenShot – pusztán videóvágás'],right:1,why:'A változtatható modell támogatja az előrejelzés–kipróbálás–megfigyelés folyamatot.',hint:'Figyeld meg: a feladatban a tanulók változtatnak egy paraméteren.'},
-    {title:'2 · Önálló: érthető magyarázó videó',desc:'Egy zajos kísérletvideót kell összevágni, narrációval és felirattal ellátni. Melyik eszközpár és kiegészítés indokolt?',options:['OpenShot + Audacity; felirat és forrásmegjelölés','Csak Mentimeter; a videó nem kell','Csak Canva; a hang minősége nem fontos'],right:0,why:'A videó- és hangszerkesztés eltérő feladat; a felirat akadálymentesíthet, a forrásmegjelölés jogszerűséget szolgál.',hint:'Gondolj külön a képsávra, a hangsávra és a hozzáférhetőségre.'},
+    {title:'2 · Önálló: érthető magyarázó videó',desc:'Egy zajos kísérletvideót kell összevágni, narrációval és felirattal ellátni. Melyik eszközpár és kiegészítés indokolt?',options:['OpenShot + Audacity; felirat és forrásmegjelölés','Csak Redmenta; a videó nem kell','Csak Canva; a hang minősége nem fontos'],right:0,why:'A videó- és hangszerkesztés eltérő feladat; a felirat akadálymentesíthet, a forrásmegjelölés jogszerűséget szolgál.',hint:'Gondolj külön a képsávra, a hangsávra és a hozzáférhetőségre.'},
     {title:'3 · Haladó: hogyan lesz a szemléltetésből tanulás?',desc:'Egy szép hanghullám-videót már elkészítettél, de a diákok csak nézik. Hogyan alakítanád át a feladatot úgy, hogy önálló következtetést is megfogalmazzanak?',options:['Több áttűnést és látványos zenét teszek bele, ellenőrzés nélkül','Előrejelzést kérek, a diákok a hanglaborban változtatnak egy paramétert, majd rövid magyarázó videó és ellenőrző kérdés következik','A teljes anyagot csak felolvasom, mert így mindenki pontosan ugyanazt hallja'],right:1,why:'Az előrejelzés, a változtatható modell, a magyarázat és a visszacsatolás egymásra épül. A tanuló nem passzív néző, hanem a saját állítását ellenőrzi.',hint:'Nem az a kérdés, hány médiát használsz, hanem hogy a tanulónak mit kell megfigyelnie, kipróbálnia és indokolnia.'}
   ];let level=0,tries=[0,0,0];
   function renderScenario(){const s=scenarios[level];document.querySelectorAll('[data-level]').forEach(b=>b.classList.toggle('active',Number(b.dataset.level)===level));const area=document.getElementById('scenarioContent');area.replaceChildren();const t=document.createElement('h3');t.textContent=s.title;const p=document.createElement('p');p.className='muted';p.textContent=s.desc;area.append(t,p);const opts=document.getElementById('scenarioChoices');opts.replaceChildren();s.options.forEach((opt,i)=>{const b=document.createElement('button');b.className='choice';const letter=document.createElement('span');letter.className='letter';letter.textContent=String.fromCharCode(65+i);const txt=document.createElement('span');txt.textContent=opt;b.append(letter,txt);b.addEventListener('click',()=>{tries[level]++;const f=document.getElementById('scenarioFeedback');const yes=i===s.right;f.className='feedback show'+(yes?'':' bad');f.textContent=yes?'Helyes! '+s.why:'Még ne álljunk meg ennél. Segítő kérdés: '+s.hint});opts.appendChild(b)});document.getElementById('scenarioFeedback').className='feedback';}
